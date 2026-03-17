@@ -14,7 +14,7 @@
 
 ---
 
-## 🔨 Currently Building
+## 🔨 Currently Building 
 
 | Project | What | Stack |
 |---------|------|-------|
