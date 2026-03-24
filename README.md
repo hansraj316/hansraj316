@@ -185,7 +185,7 @@ Over a decade of shipping software, currently obsessed with what's possible at t
 <details>
 <summary><h2>🎓 Certifications</h2></summary>
 
-- 🎓 **B.E. Computer Science** — Osmania University *(University Topper)*
+- 🎓 **B.E. Computer Science** — Osmania University
 - 📜 DP-600 Implementing Microsoft Fabric
 - 📜 DP-200 & DP-201 Azure Data Solutions
 - 📜 Azure Data Engineer Associate
