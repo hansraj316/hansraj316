@@ -30,23 +30,41 @@ Over a decade of shipping software, currently obsessed with what's possible at t
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/InterviewAgent">🤖 InterviewAgent</a></h3>
-      <p>Multi-agent pipeline automating resume optimization, cover letter generation, and job submissions. 500+ applications/day.</p>
+      <h3><a href="https://github.com/hansraj316/agentdate">💘 AgentDate</a></h3>
+      <p>AI agents register and discover each other — a social graph for autonomous agents. The missing coordination layer for the agentic web.</p>
       <p>
-        <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" />
-        <img src="https://img.shields.io/badge/MCP-00d9ff?style=flat-square" />
-        <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white" />
-        <img src="https://img.shields.io/badge/Claude_Code-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/AI_Agents-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+        <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" />
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/CoachAI">📚 CoachAI</a></h3>
-      <p>Cross-platform AI learning assistant (web + iOS) crafting personalized, real-time learning plans.</p>
+      <h3><a href="https://github.com/hansraj316/agentmesh">🕸️ AgentMesh</a></h3>
+      <p>Real-time visibility and coordination layer for multi-agent systems. See what every agent is doing, steer them, and ship faster.</p>
       <p>
-        <img src="https://img.shields.io/badge/SwiftUI-F05138?style=flat-square&logo=swift&logoColor=white" />
+        <img src="https://img.shields.io/badge/OpenClaw-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
         <img src="https://img.shields.io/badge/Python-3572A5?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" />
-        <img src="https://img.shields.io/badge/Stripe-635BFF?style=flat-square&logo=stripe&logoColor=white" />
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/hansraj316/PMChat">💬 PMChat</a></h3>
+      <p>AI-powered product management assistant — turns scattered requirements, tickets, and decisions into structured, actionable product specs.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Claude-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
+        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/hansraj316/mission-control-openclaw">🛰️ Mission Control</a></h3>
+      <p>Real-time dashboard for the Indian Avengers AI org — 25+ agents, cron jobs, security telemetry, and GitHub activity in one command center.</p>
+      <p>
+        <img src="https://img.shields.io/badge/OpenClaw-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/Python-3572A5?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white" />
       </p>
     </td>
   </tr>
@@ -61,11 +79,12 @@ Over a decade of shipping software, currently obsessed with what's possible at t
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/voice-agent-carnival">🎙️ Voice Agent Carnival</a></h3>
-      <p>Collection of voice agent experiments pushing the boundaries of conversational AI.</p>
+      <h3><a href="https://github.com/hansraj316/InterviewAgent">🤖 InterviewAgent</a></h3>
+      <p>Multi-agent pipeline automating resume optimization, cover letter generation, and job submissions. 500+ applications/day.</p>
       <p>
-        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
-        <img src="https://img.shields.io/badge/Voice_AI-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" />
+        <img src="https://img.shields.io/badge/MCP-00d9ff?style=flat-square" />
+        <img src="https://img.shields.io/badge/Claude_Code-00d9ff?style=flat-square" />
       </p>
     </td>
   </tr>
@@ -85,10 +104,10 @@ Over a decade of shipping software, currently obsessed with what's possible at t
       <p align="center">
         <img src="https://img.shields.io/badge/Claude-00d9ff?style=for-the-badge&labelColor=0a0a0a" />
         <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" />
-        <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge" />
-        <img src="https://img.shields.io/badge/Azure_AI-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" />
-        <img src="https://img.shields.io/badge/RAG-22c55e?style=for-the-badge" />
+        <img src="https://img.shields.io/badge/OpenClaw-00d9ff?style=for-the-badge" />
         <img src="https://img.shields.io/badge/MCP-00d9ff?style=for-the-badge" />
+        <img src="https://img.shields.io/badge/RAG-22c55e?style=for-the-badge" />
+        <img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge" />
       </p>
     </td>
     <td valign="top" width="33%">
@@ -106,7 +125,7 @@ Over a decade of shipping software, currently obsessed with what's possible at t
         <img src="https://img.shields.io/badge/Python-3572A5?style=for-the-badge&logo=python&logoColor=white" />
         <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
         <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" />
-        <img src="https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white" />
+        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
       </p>
     </td>
   </tr>
@@ -132,7 +151,7 @@ Over a decade of shipping software, currently obsessed with what's possible at t
     <td valign="top" width="33%">
       <h3 align="center">Data & Infra</h3>
       <p align="center">
-        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
+        <img src="https://img.shields.io/badge/Databricks-FF3621?style=for-the-badge&logo=databricks&logoColor=white" />
         <img src="https://img.shields.io/badge/SQL_Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white" />
         <img src="https://img.shields.io/badge/REST_APIs-00d9ff?style=for-the-badge" />
         <img src="https://img.shields.io/badge/Stripe-635BFF?style=for-the-badge&logo=stripe&logoColor=white" />
