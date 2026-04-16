@@ -327,3 +327,498 @@ These repos don't map to the architecture and can be left as-is:
 - `vercel-nano-banana` -- Vercel experiment
 - `claude-automatic-sniffle` -- Experiment
 - `openclaw-setup-tracker` -- Setup utility
+
+---
+---
+
+# Deep Dive: agentmesh Implementation Plan
+
+> Target repo: [`hansraj316/agentmesh`](https://github.com/hansraj316/agentmesh)
+> Stack: Python + SQLite + OpenClaw
+> Status: Early-stage / greenfield
+
+The `agentmesh` repo is the natural home for the **coordination layer** of the ohno architecture. It maps to 7 architecture components from the diagram and can serve as the central nervous system connecting your other repos.
+
+---
+
+## Architecture Components to Implement in agentmesh
+
+### Overview
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                      agentmesh                          │
+│                                                         │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
+│  │    Swarm      │  │   Session    │  │   Services   │  │
+│  │ Coordinator   │  │    Pool      │  │              │  │
+│  │              │  │              │  │ - Cron       │  │
+│  │ - Team Reg.  │  │ - Create     │  │ - Storage    │  │
+│  │ - Mailbox    │  │ - Persist    │  │ - Compact    │  │
+│  │ - Subagents  │  │ - Resume     │  │ - Tokens     │  │
+│  │ - Lifecycle  │  │ - Compact    │  │              │  │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  │
+│         │                 │                 │           │
+│  ┌──────┴─────────────────┴─────────────────┴───────┐  │
+│  │              QueryEngine (Agent Loop)              │  │
+│  │         stream → tool_use → loop → respond         │  │
+│  └──────────────────────┬────────────────────────────┘  │
+│                         │                               │
+│  ┌──────────────┐  ┌────┴─────────┐  ┌──────────────┐  │
+│  │    Memory     │  │    Tool      │  │  Permission  │  │
+│  │              │  │  Registry    │  │   Checker    │  │
+│  │ - MEMORY.md  │  │ - Pydantic   │  │ - Modes      │  │
+│  │ - Discovery  │  │ - MCP        │  │ - Path rules │  │
+│  │ - R/W cycle  │  │ - Dynamic    │  │ - Hooks      │  │
+│  └──────────────┘  └──────────────┘  └──────────────┘  │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 1. Swarm Coordinator
+
+The most complex and valuable component. This is what makes agentmesh unique.
+
+### 1.1 Team Registry
+
+```python
+# agentmesh/coordinator/registry.py
+
+"""
+Central registry where agents register themselves and discover peers.
+Backed by SQLite for persistence.
+
+Tables:
+  agents       - id, name, type, capabilities, status, registered_at
+  teams        - id, name, purpose, created_at
+  team_members - team_id, agent_id, role, joined_at
+"""
+```
+
+**What it does:**
+- Agents register on startup with their capabilities (tools, skills, models)
+- Teams group agents for coordinated tasks
+- Registry is queryable -- agents can discover peers by capability
+- Connects to `agentdate` concepts (agent social graph)
+
+**Schema (SQLite):**
+
+```sql
+CREATE TABLE agents (
+    id          TEXT PRIMARY KEY,
+    name        TEXT NOT NULL,
+    type        TEXT NOT NULL,        -- 'subprocess', 'in_process', 'remote'
+    capabilities TEXT,                -- JSON array of capability strings
+    endpoint    TEXT,                 -- URL or stdio path
+    status      TEXT DEFAULT 'idle',  -- 'idle', 'busy', 'offline'
+    last_seen   TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE teams (
+    id       TEXT PRIMARY KEY,
+    name     TEXT NOT NULL,
+    purpose  TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE team_members (
+    team_id  TEXT REFERENCES teams(id),
+    agent_id TEXT REFERENCES agents(id),
+    role     TEXT DEFAULT 'member',   -- 'lead', 'member', 'observer'
+    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (team_id, agent_id)
+);
+```
+
+### 1.2 Mailbox (Inter-Agent Messaging)
+
+```python
+# agentmesh/coordinator/mailbox.py
+
+"""
+Async message passing between agents.
+Agents send messages to a named mailbox; recipients poll or subscribe.
+
+Message types:
+  - task_request   : "Please do X"
+  - task_result    : "Here's the result of X"
+  - status_update  : "I'm now doing Y"
+  - broadcast      : "FYI to all team members"
+"""
+```
+
+**Schema:**
+
+```sql
+CREATE TABLE messages (
+    id          TEXT PRIMARY KEY,
+    from_agent  TEXT REFERENCES agents(id),
+    to_agent    TEXT,                     -- NULL = broadcast
+    team_id     TEXT REFERENCES teams(id),
+    type        TEXT NOT NULL,
+    payload     TEXT NOT NULL,            -- JSON
+    status      TEXT DEFAULT 'pending',   -- 'pending', 'delivered', 'read'
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+### 1.3 Subagent Spawning
+
+```python
+# agentmesh/coordinator/spawner.py
+
+"""
+Spawn subagents as:
+  - subprocess  : isolated OS process (safest)
+  - in_process  : thread/coroutine (fastest)
+  - worktree    : git worktree for code-editing agents
+
+Each subagent gets its own RuntimeBundle with:
+  - Scoped permissions
+  - Dedicated mailbox
+  - Resource limits (timeout, max tokens)
+"""
+```
+
+### 1.4 Team Lifecycle
+
+```python
+# agentmesh/coordinator/lifecycle.py
+
+"""
+Team lifecycle: create → assign → execute → report → dissolve
+
+States:
+  FORMING   - team created, members joining
+  ACTIVE    - executing coordinated task
+  REPORTING - aggregating results
+  DISSOLVED - task complete, team disbanded
+"""
+```
+
+---
+
+## 2. QueryEngine (Agent Loop)
+
+The core execution engine. Extract patterns from `InterviewAgent`.
+
+### Proposed Module Structure
+
+```python
+# agentmesh/engine/query_engine.py
+
+"""
+Agent loop: stream → tool_use → loop
+
+Core loop:
+  1. Send message + tools to LLM
+  2. Stream response tokens
+  3. If tool_use in response → execute tool → append result → goto 1
+  4. If text response → return to user
+  5. Auto-compact if context exceeds threshold
+
+Features:
+  - Parallel tool execution (multiple tool calls in one turn)
+  - Cost tracking (input/output tokens per turn)
+  - Streaming output
+  - Auto-compaction (summarize old messages when context fills)
+"""
+```
+
+### Key Classes
+
+```python
+class QueryEngine:
+    """Main agent loop executor."""
+    
+    def __init__(self, provider, tool_registry, memory, permissions):
+        ...
+    
+    async def run(self, messages, stream=True):
+        """Execute the agent loop until completion."""
+        ...
+    
+    async def _execute_tools(self, tool_calls):
+        """Execute tool calls, optionally in parallel."""
+        ...
+    
+    def _should_compact(self, messages) -> bool:
+        """Check if messages exceed context threshold."""
+        ...
+    
+    def _compact(self, messages) -> list:
+        """Summarize older messages to free context."""
+        ...
+
+
+class CostTracker:
+    """Track token usage and estimated cost per provider."""
+    
+    def record(self, provider, model, input_tokens, output_tokens): ...
+    def total_cost(self) -> float: ...
+    def summary(self) -> dict: ...
+```
+
+---
+
+## 3. Session Pool
+
+Manages per-chat agent sessions with persistence.
+
+```python
+# agentmesh/sessions/pool.py
+
+"""
+Session lifecycle: create → active → suspended → resumed → closed
+
+Features:
+  - SQLite-backed persistence
+  - Auto-compact long conversations
+  - Resume from last checkpoint
+  - Garbage collection for expired sessions
+"""
+```
+
+**Schema:**
+
+```sql
+CREATE TABLE sessions (
+    id          TEXT PRIMARY KEY,
+    agent_id    TEXT REFERENCES agents(id),
+    status      TEXT DEFAULT 'active',    -- 'active', 'suspended', 'closed'
+    messages    TEXT,                      -- JSON array (compacted)
+    metadata    TEXT,                      -- JSON (model, provider, tools)
+    token_count INTEGER DEFAULT 0,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at  TIMESTAMP
+);
+
+CREATE TABLE checkpoints (
+    id          TEXT PRIMARY KEY,
+    session_id  TEXT REFERENCES sessions(id),
+    messages    TEXT NOT NULL,             -- JSON snapshot
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+---
+
+## 4. Memory System
+
+Persistent memory across sessions.
+
+```python
+# agentmesh/memory/manager.py
+
+"""
+Two-tier memory:
+  1. CLAUDE.md  - Project context, discovered automatically (read-only)
+  2. MEMORY.md  - Persistent facts, preferences, decisions (read-write)
+
+Discovery:
+  - Walk up from cwd looking for CLAUDE.md files
+  - Merge all found files into context
+  - MEMORY.md lives in ~/.ohno/memory/ per-project
+"""
+```
+
+---
+
+## 5. Tool Registry
+
+Dynamic tool management with Pydantic schemas.
+
+```python
+# agentmesh/tools/registry.py
+
+"""
+Tool categories:
+  - file_io    : Read, Write, Edit, Glob
+  - shell      : Bash, Grep
+  - web        : WebFetch, WebSearch
+  - agent      : Agent (spawn subagent), SendMessage
+  - mcp        : Dynamically loaded from MCP servers
+  - custom     : User-defined via plugins
+
+Each tool has:
+  - name, description
+  - Pydantic input schema
+  - execute() method
+  - Required permissions
+"""
+```
+
+### MCP Integration
+
+```python
+# agentmesh/tools/mcp_loader.py
+
+"""
+Load tools dynamically from MCP servers.
+Supports three transports:
+  - stdio   : spawn a subprocess, communicate via stdin/stdout
+  - HTTP    : REST API calls
+  - WebSocket : persistent connection for streaming
+  
+Config format (.claude/mcp.servers.json):
+{
+  "servers": {
+    "browser": {
+      "command": "python",
+      "args": ["iframe_browser_server.py"],
+      "transport": "stdio"
+    }
+  }
+}
+"""
+```
+
+---
+
+## 6. Permission Checker
+
+Safety rails for tool execution.
+
+```python
+# agentmesh/permissions/checker.py
+
+"""
+Three modes:
+  - default  : ask user before risky operations
+  - auto     : allow all (for trusted contexts)
+  - plan     : propose actions, wait for approval
+
+Rules:
+  - Path-based file access (allow/deny patterns)
+  - Command denylist (rm -rf, DROP TABLE, etc.)
+  - Network access control
+  - Per-tool permission overrides
+"""
+```
+
+---
+
+## 7. Services
+
+Background services that support the platform.
+
+```python
+# agentmesh/services/
+
+"""
+auto_compact.py   - Summarize old messages when context fills
+session_store.py  - SQLite persistence for sessions
+cron.py           - Scheduled agent tasks (from mission-control patterns)
+token_counter.py  - Estimate tokens before sending to LLM
+health.py         - Agent health checks and heartbeat
+"""
+```
+
+---
+
+## Proposed Directory Structure
+
+```
+agentmesh/
+├── README.md
+├── pyproject.toml
+├── agentmesh/
+│   ├── __init__.py
+│   ├── coordinator/
+│   │   ├── __init__.py
+│   │   ├── registry.py          # Team & Agent Registry
+│   │   ├── mailbox.py           # Inter-agent messaging
+│   │   ├── spawner.py           # Subagent spawning
+│   │   └── lifecycle.py         # Team lifecycle management
+│   ├── engine/
+│   │   ├── __init__.py
+│   │   ├── query_engine.py      # Core agent loop
+│   │   ├── cost_tracker.py      # Token & cost tracking
+│   │   └── compactor.py         # Auto-compaction
+│   ├── sessions/
+│   │   ├── __init__.py
+│   │   └── pool.py              # Session pool manager
+│   ├── memory/
+│   │   ├── __init__.py
+│   │   └── manager.py           # MEMORY.md + CLAUDE.md
+│   ├── tools/
+│   │   ├── __init__.py
+│   │   ├── registry.py          # Tool registry
+│   │   ├── mcp_loader.py        # MCP server integration
+│   │   └── builtins/
+│   │       ├── __init__.py
+│   │       ├── file_io.py       # Read, Write, Edit, Glob
+│   │       ├── shell.py         # Bash, Grep
+│   │       └── web.py           # WebFetch, WebSearch
+│   ├── permissions/
+│   │   ├── __init__.py
+│   │   └── checker.py           # Permission checker
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── auto_compact.py
+│   │   ├── session_store.py
+│   │   ├── cron.py
+│   │   ├── token_counter.py
+│   │   └── health.py
+│   └── db/
+│       ├── __init__.py
+│       ├── schema.sql            # All table definitions
+│       └── migrations/
+├── tests/
+│   ├── test_coordinator.py
+│   ├── test_engine.py
+│   ├── test_sessions.py
+│   └── test_tools.py
+└── .claude/
+    └── mcp.servers.json
+```
+
+---
+
+## Implementation Priority (for agentmesh)
+
+| Priority | Component | Effort | Why First |
+|----------|-----------|--------|-----------|
+| **P0** | SQLite schema + DB layer | 1-2 days | Foundation for everything else |
+| **P0** | Agent Registry | 2-3 days | Core identity — agents must register before coordinating |
+| **P1** | QueryEngine (basic loop) | 3-4 days | The execution engine that makes agents actually work |
+| **P1** | Tool Registry + 3 builtins | 2-3 days | Agents need tools to be useful |
+| **P1** | Session Pool | 2-3 days | Persistence for conversations |
+| **P2** | Mailbox | 2-3 days | Multi-agent communication |
+| **P2** | Memory Manager | 1-2 days | Cross-session learning |
+| **P2** | Permission Checker | 2 days | Safety before going multi-user |
+| **P3** | MCP Loader | 2-3 days | Extensibility via MCP servers |
+| **P3** | Subagent Spawner | 3-4 days | Advanced orchestration |
+| **P3** | Team Lifecycle | 2 days | Structured multi-agent workflows |
+| **P3** | Services (cron, compact, tokens) | 3-4 days | Production hardening |
+
+**Total estimated: ~4-6 weeks for full implementation**
+
+---
+
+## Cross-Repo Integration Points
+
+Once agentmesh is built, it connects to your other repos:
+
+```
+InterviewAgent ──registers──▶ agentmesh Registry
+                              (resume agent, cover letter agent, submitter agent)
+
+voice-agent-carnival ──routes via──▶ agentmesh Gateway
+                                     (voice sessions managed by Session Pool)
+
+mission-control ──monitors──▶ agentmesh Registry + Services
+                              (dashboard reads agent status, cron jobs)
+
+agentdate ──discovers via──▶ agentmesh Registry
+                             (external agent discovery feeds into local registry)
+
+OllamaBar ──provides models to──▶ agentmesh QueryEngine
+                                   (local LLM as a provider option)
+
+PMChat ──uses──▶ agentmesh QueryEngine + Memory
+                  (chat sessions with persistent context)
+```
