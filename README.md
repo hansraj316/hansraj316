@@ -5,8 +5,8 @@
 
 <br/>
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-00d9ff?style=for-the-badge&logo=google-chrome&logoColor=0a0a0a)](https://hansraj-portfolio.vercel.app)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/hansrajsinghthakur)
+[![Portfolio](https://img.shields.io/badge/Portfolio-00d9ff?style=for-the-badge&logo=google-chrome&logoColor=0a0a0a)](https://hansraj-portfolio-five.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/hansraj316)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hansraj316@gmail.com)
 
 <img src="https://komarev.com/ghpvc/?username=hansraj316&style=flat-square&color=00d9ff&label=Profile+Views" alt="Profile views" />
