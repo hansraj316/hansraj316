@@ -100,6 +100,47 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
 ---
 
 <details open>
+<summary><h2>🐦 AI Agents for X/Twitter</h2></summary>
+
+<table>
+  <tr>
+    <td width="33%" valign="top">
+      <h3>✍️ Content Generation Agent</h3>
+      <p>Creates ship-ready tweets, threads, and hooks from product updates, engineering wins, and market narratives with voice-safe tone controls.</p>
+      <p>
+        <img src="https://img.shields.io/badge/LLM_Prompting-FFD700?style=flat-square" />
+        <img src="https://img.shields.io/badge/Brand_Voice-1a1a2e?style=flat-square&logoColor=white" />
+        <img src="https://img.shields.io/badge/A_B_Variants-22c55e?style=flat-square" />
+      </p>
+    </td>
+    <td width="33%" valign="top">
+      <h3>📈 Trend Scanner Agent</h3>
+      <p>Tracks real-time topics, hashtags, and competitor chatter to surface high-signal opportunities, ranked by relevance and momentum.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Trend_Detection-FFD700?style=flat-square" />
+        <img src="https://img.shields.io/badge/Realtime_Signals-0ea5e9?style=flat-square" />
+        <img src="https://img.shields.io/badge/Scoring_Engine-f97316?style=flat-square" />
+      </p>
+    </td>
+    <td width="33%" valign="top">
+      <h3>⚡ Engagement Response Agent</h3>
+      <p>Drafts fast, context-aware replies for mentions and comments, with human-in-the-loop controls for sensitive or high-impact threads.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Response_AI-FFD700?style=flat-square" />
+        <img src="https://img.shields.io/badge/Human_in_the_Loop-ef4444?style=flat-square" />
+        <img src="https://img.shields.io/badge/SLA_Aware-8b5cf6?style=flat-square" />
+      </p>
+    </td>
+  </tr>
+</table>
+
+**Mission profile:** AI-powered content generation, trend scanning, and real-time engagement response for X/Twitter growth loops.
+
+</details>
+
+---
+
+<details open>
 <summary><h2>🗡️ Weapons in Me Arsenal</h2></summary>
 
 <table>
