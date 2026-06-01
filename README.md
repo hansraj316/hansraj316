@@ -86,6 +86,7 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
     <td width="50%" valign="top">
       <h3><a href="https://github.com/hansraj316/InterviewAgent">🤖 InterviewAgent</a></h3>
       <p>A crew of agents automatin' resume plunderin', cover letter forgin', and job boardin'. 500+ raids per day.</p>
+      <p>📜 <em>Next charter:</em> <a href="./PROJECT-DEAL-NEGOTIATION.md">Deal Plunderin' — autonomous offer negotiation</a></p>
       <p>
         <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" />
         <img src="https://img.shields.io/badge/MCP-FFD700?style=flat-square" />
