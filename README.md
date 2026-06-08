@@ -29,21 +29,6 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
 
 ---
 
-<div align="center">
-
-## 🎬 The Showreel — `boot hansraj.os`
-
-[![HANSRAJ.OS — animated showreel, click to watch with sound](assets/hansraj-os-preview.gif)](assets/hansraj-os.mp4)
-
-*A 24-second boot sequence — terminal boot ⚓ 25-agent constellation ⚓ live GitHub stats ⚓ capability matrix.*
-<br/>*Built with [Remotion](https://remotion.dev) and scored with an original synthwave track.*
-
-**▶ [Click the reel for the full video with sound »](assets/hansraj-os.mp4)**
-
-</div>
-
----
-
 <details open>
 <summary><h2>🗺️ Active Expeditions (Currently Plunderin')</h2></summary>
 
@@ -109,6 +94,27 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
     </td>
   </tr>
 </table>
+
+</details>
+
+---
+
+<details open>
+<summary><h2>📦 Booty Shipped (Published Plunder)</h2></summary>
+
+<p>
+  <a href="https://clawhub.ai/hansraj316/webwright"><img src="https://img.shields.io/badge/ClawHub-webwright-FFD700?style=for-the-badge&logo=playwright&logoColor=1a1a2e" alt="webwright on ClawHub" /></a>
+  &nbsp;<a href="https://clawhub.ai/hansraj316/webwright"><img src="https://img.shields.io/badge/View-Live_Stats-0077B5?style=for-the-badge&logo=icloud&logoColor=white" alt="View live stats on ClawHub" /></a>
+  &nbsp;<img src="https://img.shields.io/badge/License-MIT--0-2e7d32?style=for-the-badge" alt="MIT-0" />
+</p>
+
+🕸️ **[webwright](https://clawhub.ai/hansraj316/webwright)** — a code-as-action web agent skill fer OpenClaw that hands long-horizon browser plunderin' to Microsoft's `webwright` CLI (an LLM writes Playwright scripts to sail a real Chromium through logins, forms, and checkout wizards). Drop anchor with:
+
+```bash
+openclaw skills install webwright
+```
+
+<sub>⚓ Live download tally & security status be on the <a href="https://clawhub.ai/hansraj316/webwright">ClawHub page</a>.</sub>
 
 </details>
 
@@ -247,3 +253,4 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1a2e,50:FFD700,100:1a1a2e&height=80&section=footer" width="100%" />
 
 </div>
+
