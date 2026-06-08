@@ -29,6 +29,21 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
 
 ---
 
+<div align="center">
+
+## 🎬 The Showreel — `boot hansraj.os`
+
+[![HANSRAJ.OS — animated showreel, click to watch with sound](assets/hansraj-os-preview.gif)](assets/hansraj-os.mp4)
+
+*A 24-second boot sequence — terminal boot ⚓ 25-agent constellation ⚓ live GitHub stats ⚓ capability matrix.*
+<br/>*Built with [Remotion](https://remotion.dev) and scored with an original synthwave track.*
+
+**▶ [Click the reel for the full video with sound »](assets/hansraj-os.mp4)**
+
+</div>
+
+---
+
 <details open>
 <summary><h2>🗺️ Active Expeditions (Currently Plunderin')</h2></summary>
 
