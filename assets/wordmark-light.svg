@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 108" width="900" height="108" role="img" aria-label="Hansraj Singh Thakur — AI engineer and full-stack developer, Seattle, since 2011">
+  <title>Hansraj Singh Thakur</title>
+  <rect width="900" height="108" fill="#ffffff"/>
+  <text x="0" y="54" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="43" font-weight="700" fill="#1f2328" letter-spacing="-1.4">Hansraj Singh Thakur</text>
+  <line x1="0" y1="77" x2="900" y2="77" stroke="#d1d9e0"/>
+  <g font-family="ui-monospace, SFMono-Regular, &apos;SF Mono&apos;, Menlo, Consolas, monospace" font-size="11.5" fill="#59636e" letter-spacing="2.4">
+    <text x="0" y="99">AI ENGINEER · FULL-STACK DEVELOPER</text>
+    <text x="900" y="99" text-anchor="end">SEATTLE, WA · SINCE 2011</text>
+  </g>
+</svg>

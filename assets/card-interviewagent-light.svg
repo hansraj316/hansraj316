@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 182" width="420" height="182" role="img" aria-label="InterviewAgent — Tailors resumes, drafts cover letters and submits applications on a schedule.">
+  <title>InterviewAgent</title>
+  <rect width="420" height="182" rx="6" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="419" height="181" rx="5.5" fill="none" stroke="#d1d9e0"/>
+  <path d="M0 6 A6 6 0 0 1 6 0 H414 A6 6 0 0 1 420 6 V9 H0 Z" fill="#8f5f33"/>
+  <g transform="translate(28,30)" stroke="#8f5f33" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="31" height="42" rx="2.5"/><path d="M8.5 13 h18 M8.5 22 h18 M8.5 31 h11"/><path d="M39 15 h16 M50 9 l6 6 -6 6"/><rect x="39" y="28" width="21" height="16" rx="2.5"/></g>
+  <text x="392" y="26" text-anchor="end" font-family="ui-monospace, SFMono-Regular, &apos;SF Mono&apos;, Menlo, Consolas, monospace" font-size="10.5" fill="#8f5f33" letter-spacing="1.9">PYTHON · PLAYWRIGHT</text>
+  <text x="28" y="116" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#1f2328" letter-spacing="-0.4">InterviewAgent</text>
+  <text x="28" y="140" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#59636e">Tailors resumes, drafts cover letters and</text>
+  <text x="28" y="157" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#59636e">submits applications on a schedule.</text>
+</svg>
