@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 182" width="420" height="182" role="img" aria-label="webwright — A published skill that drives a real browser through logins, forms and checkouts.">
+  <title>webwright</title>
+  <rect width="420" height="182" rx="6" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="419" height="181" rx="5.5" fill="none" stroke="#d1d9e0"/>
+  <path d="M0 6 A6 6 0 0 1 6 0 H414 A6 6 0 0 1 420 6 V9 H0 Z" fill="#6f5c99"/>
+  <g transform="translate(28,30)" stroke="#6f5c99" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="58" height="41" rx="2.5"/><path d="M2 14 h58"/><path d="M8.5 8.5 h0.01 M15 8.5 h0.01 M21.5 8.5 h0.01" stroke-width="2.6"/><path d="M13 37 q10 -18 22 -8 t13 -7"/><path d="M44 19 l8 2.5 -3.6 3.6 z"/></g>
+  <text x="392" y="26" text-anchor="end" font-family="ui-monospace, SFMono-Regular, &apos;SF Mono&apos;, Menlo, Consolas, monospace" font-size="10.5" fill="#6f5c99" letter-spacing="1.9">PLAYWRIGHT · MIT-0</text>
+  <text x="28" y="116" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#1f2328" letter-spacing="-0.4">webwright</text>
+  <text x="28" y="140" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#59636e">A published skill that drives a real browser</text>
+  <text x="28" y="157" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#59636e">through logins, forms and checkouts.</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 182" width="420" height="182" role="img" aria-label="AgentMesh — Real-time visibility and coordination for systems running many agents at once.">
+  <title>AgentMesh</title>
+  <rect width="420" height="182" rx="6" fill="#0d1117"/>
+  <rect x="0.5" y="0.5" width="419" height="181" rx="5.5" fill="none" stroke="#30363d"/>
+  <path d="M0 6 A6 6 0 0 1 6 0 H414 A6 6 0 0 1 420 6 V9 H0 Z" fill="#7fa3c4"/>
+  <g transform="translate(28,30)" stroke="#7fa3c4" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="7" r="4.2"/><circle cx="41" cy="4" r="4.2"/><circle cx="23" cy="28" r="4.2"/><circle cx="54" cy="30" r="4.2"/><path d="M9.2 9.2 L20 25"/><path d="M39.5 8 L25.5 24.5"/><path d="M27.2 28.6 L49.8 29.8"/><path d="M43.5 7.8 L52.5 25.8"/></g>
+  <text x="392" y="26" text-anchor="end" font-family="ui-monospace, SFMono-Regular, &apos;SF Mono&apos;, Menlo, Consolas, monospace" font-size="10.5" fill="#7fa3c4" letter-spacing="1.9">PYTHON · SQLITE</text>
+  <text x="28" y="116" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="25" font-weight="700" fill="#e6edf3" letter-spacing="-0.4">AgentMesh</text>
+  <text x="28" y="140" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">Real-time visibility and coordination for</text>
+  <text x="28" y="157" font-family="-apple-system, BlinkMacSystemFont, &apos;Segoe UI&apos;, Helvetica, Arial, sans-serif" font-size="13" fill="#8b949e">systems running many agents at once.</text>
+</svg>
