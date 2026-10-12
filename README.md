@@ -35,45 +35,35 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
 <table>
   <tr>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/agentdate">💘 AgentDate</a></h3>
-      <p>Where AI agents find their mateys — a social graph fer autonomous agents. The missin' coordination layer fer the agentic seas.</p>
+      <h3><a href="https://github.com/hansraj316/openclaw">🪝 OpenClaw</a></h3>
+      <p>The flagship o' me AI armada — an open framework fer buildin', wirin', and commandin' crews of autonomous agents across the seas.</p>
       <p>
         <img src="https://img.shields.io/badge/AI_Agents-FFD700?style=flat-square&logoColor=1a1a2e" />
-        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
-        <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" />
+        <img src="https://img.shields.io/badge/Python-3572A5?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/MCP-FFD700?style=flat-square" />
       </p>
     </td>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/agentmesh">🕸️ AgentMesh</a></h3>
-      <p>The crow's nest fer multi-agent fleets. See what every agent be doin', steer the fleet, and ship faster than a broadside volley.</p>
+      <h3><a href="https://github.com/hansraj316/cloud-arch-marketplace">☁️ Cloud Arch Marketplace</a></h3>
+      <p>A Claude Code plugin marketplace o' editable Azure/AWS/GCP architecture charts — official icons, .excalidraw &amp; .drawio, ready to plunder.</p>
       <p>
-        <img src="https://img.shields.io/badge/OpenClaw-FFD700?style=flat-square" />
-        <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
+        <img src="https://img.shields.io/badge/Claude_Code-FFD700?style=flat-square" />
         <img src="https://img.shields.io/badge/Python-3572A5?style=flat-square&logo=python&logoColor=white" />
+        <img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square&logo=microsoftazure&logoColor=white" />
+        <img src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white" />
       </p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/PMChat">💬 PMChat</a></h3>
-      <p>AI-powered first mate — turns scattered requirements, tickets, and captain's orders into structured, actionable treasure maps.</p>
+      <h3><a href="https://github.com/hansraj316/sdd-grader">📜 SDD Grader</a></h3>
+      <p>The ship's inspector fer Spec-Driven Development — grades yer specs and design docs against a rubric so no half-drawn map ever sets sail.</p>
       <p>
+        <img src="https://img.shields.io/badge/Spec--Driven_Dev-FFD700?style=flat-square" />
+        <img src="https://img.shields.io/badge/Python-3572A5?style=flat-square&logo=python&logoColor=white" />
         <img src="https://img.shields.io/badge/Claude-FFD700?style=flat-square" />
-        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-        <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
       </p>
     </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/mission-control-openclaw">🛰️ Mission Control</a></h3>
-      <p>The war room of the Indian Avengers AI armada — 25+ agents, cron cannons, security watch, and GitHub activity on one command deck.</p>
-      <p>
-        <img src="https://img.shields.io/badge/OpenClaw-FFD700?style=flat-square" />
-        <img src="https://img.shields.io/badge/Python-3572A5?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Chart.js-FF6384?style=flat-square&logo=chartdotjs&logoColor=white" />
-      </p>
-    </td>
-  </tr>
-  <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/hansraj316/OllamaBar">🍺 OllamaBar</a></h3>
       <p>A fine grog dispenser fer yer macOS menu bar — run and switch local LLMs from yer toolbar like changin' sails.</p>
@@ -81,15 +71,6 @@ No quarter given to half-built software. I ship the *whole* thing or I don't doc
         <img src="https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white" />
         <img src="https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white" />
         <img src="https://img.shields.io/badge/Ollama-111111?style=flat-square" />
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/hansraj316/InterviewAgent">🤖 InterviewAgent</a></h3>
-      <p>A crew of agents automatin' resume plunderin', cover letter forgin', and job boardin'. 500+ raids per day.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" />
-        <img src="https://img.shields.io/badge/MCP-FFD700?style=flat-square" />
-        <img src="https://img.shields.io/badge/Claude_Code-FFD700?style=flat-square" />
       </p>
     </td>
   </tr>
