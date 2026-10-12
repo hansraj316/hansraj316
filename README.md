@@ -15,18 +15,19 @@ agents, voice interfaces and macOS apps for the last two. Everything in public.
 ## Currently building
 
 <p>
-<a href="https://github.com/hansraj316/agentmesh"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-agentmesh-dark.svg"><img alt="AgentMesh — real-time visibility and coordination for systems running many agents at once. Python, SQLite." src="assets/card-agentmesh-light.svg" width="49%"></picture></a>
+<a href="https://github.com/hansraj316/openclaw"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-openclaw-dark.svg"><img alt="OpenClaw — an open agent runtime: install skills from ClawHub and run agent fleets." src="assets/card-openclaw-light.svg" width="49%"></picture></a>
 <a href="https://github.com/hansraj316/OllamaBar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-ollamabar-dark.svg"><img alt="OllamaBar — run and switch local language models straight from the macOS menu bar. Swift, SwiftUI." src="assets/card-ollamabar-light.svg" width="49%"></picture></a>
-<a href="https://github.com/hansraj316/InterviewAgent"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-interviewagent-dark.svg"><img alt="InterviewAgent — tailors resumes, drafts cover letters and submits applications on a schedule. Python, Playwright." src="assets/card-interviewagent-light.svg" width="49%"></picture></a>
-<a href="https://clawhub.ai/hansraj316/webwright"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-webwright-dark.svg"><img alt="webwright — a published skill that drives a real browser through logins, forms and checkouts. Playwright, MIT-0." src="assets/card-webwright-light.svg" width="49%"></picture></a>
+<a href="https://github.com/hansraj316/sdd-grader"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-sdd-grader-dark.svg"><img alt="SDD Grader — grades spec-driven development documents against a rubric before code is written. Python, LLM." src="assets/card-sdd-grader-light.svg" width="49%"></picture></a>
+<a href="https://github.com/hansraj316/cloud-arch-marketplace"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-cloud-arch-marketplace-dark.svg"><img alt="Cloud Arch Marketplace — editable Azure/AWS/GCP architecture diagrams with official icons. Excalidraw, draw.io." src="assets/card-cloud-arch-marketplace-light.svg" width="49%"></picture></a>
 </p>
 
-Install the browser skill with `openclaw skills install webwright`.
+Install a skill with `openclaw skills install webwright`.
 
-Also in the open: [voice-agent-carnival](https://github.com/hansraj316/voice-agent-carnival),
-[cloud-arch-marketplace](https://github.com/hansraj316/cloud-arch-marketplace),
-[claude-agent-sdk-learning](https://github.com/hansraj316/claude-agent-sdk-learning),
-[sdd-grader](https://github.com/hansraj316/sdd-grader).
+Also in the open: [agentmesh](https://github.com/hansraj316/agentmesh),
+[InterviewAgent](https://github.com/hansraj316/InterviewAgent),
+[webwright](https://clawhub.ai/hansraj316/webwright),
+[voice-agent-carnival](https://github.com/hansraj316/voice-agent-carnival),
+[claude-agent-sdk-learning](https://github.com/hansraj316/claude-agent-sdk-learning).
 
 ## Track record
 
