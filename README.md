@@ -15,7 +15,7 @@ agents, voice interfaces and macOS apps for the last two. Everything in public.
 ## Currently building
 
 <p>
-<a href="https://github.com/hansraj316/openclaw"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-openclaw-dark.svg"><img alt="OpenClaw — an open agent runtime: install skills from ClawHub and run agent fleets." src="assets/card-openclaw-light.svg" width="49%"></picture></a>
+<a href="https://github.com/hansraj316/openclaw"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-openclaw-dark.svg"><img alt="OpenClaw — an open agent runtime for building and running agent fleets; I'm a contributor." src="assets/card-openclaw-light.svg" width="49%"></picture></a>
 <a href="https://github.com/hansraj316/OllamaBar"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-ollamabar-dark.svg"><img alt="OllamaBar — run and switch local language models straight from the macOS menu bar. Swift, SwiftUI." src="assets/card-ollamabar-light.svg" width="49%"></picture></a>
 <a href="https://github.com/hansraj316/sdd-grader"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-sdd-grader-dark.svg"><img alt="SDD Grader — grades spec-driven development documents against a rubric before code is written. Python, LLM." src="assets/card-sdd-grader-light.svg" width="49%"></picture></a>
 <a href="https://github.com/hansraj316/cloud-arch-marketplace"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-cloud-arch-marketplace-dark.svg"><img alt="Cloud Arch Marketplace — editable Azure/AWS/GCP architecture diagrams with official icons. Excalidraw, draw.io." src="assets/card-cloud-arch-marketplace-light.svg" width="49%"></picture></a>
